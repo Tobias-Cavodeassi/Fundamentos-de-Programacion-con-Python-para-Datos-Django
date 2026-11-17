@@ -1,0 +1,82 @@
+/* ---------- Estilos generales ---------- */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #2c3e50;
+    line-height: 1.6;
+}
+
+/* ---------- Encabezado y menú ---------- */
+.encabezado {
+    background-color: #1f3a5f;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo {
+    margin: 0;
+    color: #ffffff;
+    font-size: 1.6rem;
+}
+
+.menu a {
+    color: #dce6f2;
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-weight: 600;
+    padding-bottom: 0.2rem;
+    border-bottom: 2px solid transparent;
+}
+
+.menu a:hover {
+    color: #ffffff;
+    border-bottom-color: #f5a623;
+}
+
+/* ---------- Contenido ---------- */
+.contenido {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.seccion {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+h2 {
+    margin-top: 0;
+    color: #1f3a5f;
+    border-bottom: 3px solid #f5a623;
+    padding-bottom: 0.5rem;
+}
+
+h3 {
+    color: #2c5282;
+    margin-bottom: 0.3rem;
+}
+
+.destacado {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #2c5282;
+}
+
+/* ---------- Pie de página ---------- */
+.pie {
+    text-align: center;
+    padding: 1.5rem;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
