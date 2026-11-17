@@ -5,6 +5,17 @@
 {% block content %}
 <section class="seccion">
     <h2>Posts</h2>
-    <p>Todavía no hay publicaciones cargadas.</p>
+
+    {% for post in posts %}
+    <article class="post">
+        <h3>{{ post.titulo }}</h3>
+        <p class="post-meta">
+            Por {{ post.autor }} &middot; {{ post.fecha_creacion|date:"d/m/Y" }} &middot; {{ post.get_estado_display }}
+        </p>
+        <p>{{ post.contenido|linebreaksbr }}</p>
+    </article>
+    {% empty %}
+    <p>Todavía no hay publicaciones para mostrar.</p>
+    {% endfor %}
 </section>
 {% endblock %}

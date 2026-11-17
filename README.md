@@ -53,6 +53,20 @@ Instalar dependencias:
 pip install -r requirements.txt
 ```
 
+Aplicar las migraciones (crea la base de datos local):
+
+```bash
+python manage.py migrate
+```
+
+Crear un superusuario para acceder al panel de administración:
+
+```bash
+python manage.py createsuperuser
+```
+
+Panel de administración: http://127.0.0.1:8000/admin/ (desde ahí se cargan los posts).
+
 ## Ejecución
 
 Levantar el servidor de desarrollo:
@@ -65,7 +79,7 @@ Abrir en el navegador: http://127.0.0.1:8000/
 
 ## Aplicaciones
 
-- `posts`: aplicación inicial para manejar las publicaciones del blog.
+- `posts`: aplicación inicial para manejar las publicaciones del blog. Incluye el modelo Post (título, contenido, autor, fecha de creación y estado), configurado en el panel de administración.
 
 ## Páginas disponibles
 

@@ -80,3 +80,23 @@ h3 {
     color: #7f8c8d;
     font-size: 0.9rem;
 }
+
+/* ---------- Posts ---------- */
+.post {
+    border-bottom: 1px solid #e1e6eb;
+    padding: 1rem 0;
+}
+
+.post:last-child {
+    border-bottom: none;
+}
+
+.post h3 {
+    margin: 0 0 0.3rem;
+}
+
+.post-meta {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    margin: 0 0 0.6rem;
+}
