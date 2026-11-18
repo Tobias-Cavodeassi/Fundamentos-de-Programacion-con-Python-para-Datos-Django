@@ -1,0 +1,17 @@
+{% extends 'posts/base.html' %}
+
+{% block title %}{{ titulo_pagina }} | Blog Django{% endblock %}
+
+{% block content %}
+<section class="seccion">
+    <h2>{{ titulo_pagina }}</h2>
+
+    <!-- enctype="multipart/form-data" es obligatorio para poder enviar imágenes -->
+    <form method="post" enctype="multipart/form-data" class="formulario">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="boton">Guardar</button>
+        <a class="boton boton-secundario" href="{% url 'posts:lista_posts' %}">Cancelar</a>
+    </form>
+</section>
+{% endblock %}

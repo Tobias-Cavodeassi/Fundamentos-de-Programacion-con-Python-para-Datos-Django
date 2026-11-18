@@ -93,3 +93,36 @@ Abrir en el navegador: http://127.0.0.1:8000/
 - `urls.py`: rutas de la app, conectadas al proyecto con `include()`.
 - `templates/posts/`: `base.html` (layout con menú) y las páginas que heredan de él.
 - `static/posts/css/estilos.css`: estilos del sitio.
+
+## CRUD de posts
+
+Desde el sitio se pueden gestionar las publicaciones:
+
+- **Listar:** `/posts/`
+- **Ver detalle:** `/posts/<id>/`
+- **Crear:** `/posts/crear/`
+- **Editar:** `/posts/<id>/editar/`
+- **Eliminar:** `/posts/<id>/eliminar/` (pide confirmación antes de borrar)
+
+## Manejo de imágenes
+
+- El modelo `Post` tiene un campo `imagen` (`ImageField`), opcional.
+- Las imágenes se guardan en la carpeta `media/posts/`, configurada con `MEDIA_URL = '/media/'` y `MEDIA_ROOT = BASE_DIR / 'media'` en `settings.py`.
+- En desarrollo, `blog_project/urls.py` sirve los archivos de `media/` cuando `DEBUG` está activo.
+- El formulario usa `enctype="multipart/form-data"` y las vistas reciben el archivo con `request.FILES`.
+
+## Dependencia nueva
+
+Se instaló **Pillow**, necesaria para usar `ImageField`. Ya está incluida en `requirements.txt`:
+
+```bash
+pip install -r requirements.txt
+```
+
+## Cómo probar la carga de imágenes
+
+1. Aplicar las migraciones: `python manage.py migrate`
+2. Levantar el servidor: `python manage.py runserver`
+3. Entrar a http://127.0.0.1:8000/posts/crear/
+4. Completar el formulario, elegir una imagen y guardar.
+5. Verificar que la imagen se vea en el detalle del post y que el archivo esté en `media/posts/`.

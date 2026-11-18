@@ -5,14 +5,23 @@
 {% block content %}
 <section class="seccion">
     <h2>Posts</h2>
+    <p><a class="boton" href="{% url 'posts:crear_post' %}">+ Nuevo post</a></p>
 
     {% for post in posts %}
     <article class="post">
-        <h3>{{ post.titulo }}</h3>
+        {% if post.imagen %}
+        <img class="post-miniatura" src="{{ post.imagen.url }}" alt="{{ post.titulo }}">
+        {% endif %}
+        <h3><a href="{% url 'posts:detalle_post' post.pk %}">{{ post.titulo }}</a></h3>
         <p class="post-meta">
             Por {{ post.autor }} &middot; {{ post.fecha_creacion|date:"d/m/Y" }} &middot; {{ post.get_estado_display }}
         </p>
-        <p>{{ post.contenido|linebreaksbr }}</p>
+        <p>{{ post.contenido|truncatewords:30 }}</p>
+        <p class="acciones">
+            <a href="{% url 'posts:detalle_post' post.pk %}">Ver</a>
+            <a href="{% url 'posts:editar_post' post.pk %}">Editar</a>
+            <a href="{% url 'posts:eliminar_post' post.pk %}">Eliminar</a>
+        </p>
     </article>
     {% empty %}
     <p>Todavía no hay publicaciones para mostrar.</p>
